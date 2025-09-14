@@ -1,0 +1,75 @@
+/* Fundo geral */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container central */
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 50px 70px;
+    border-radius: 25px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.6rem;
+    color: #7b2ff7;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.4rem;
+    color: #5a5a5a;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+/* Botões */
+.btn-group a {
+    margin: 12px;
+    padding: 14px 36px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botão roxo */
+.btn-danger {
+    background: linear-gradient(135deg, #9d50bb, #6e48aa);
+    border: none;
+    color: white !important;
+}
+.btn-danger:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(157, 80, 187, 0.5);
+}
+
+/* Botão rosa-violeta */
+.btn-warning {
+    background: linear-gradient(135deg, #ff6ec7, #d83f87);
+    border: none;
+    color: white !important;
+}
+.btn-warning:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(216, 63, 135, 0.5);
+}
+
+/* Animação suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

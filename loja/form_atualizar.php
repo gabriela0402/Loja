@@ -3,6 +3,7 @@
     $id = $_GET['id'];
     //echo "Código id = $id";
 ?>
+<link rel="stylesheet" href="atualizar.css">
 <body >
     <h1 >ATUALIZAÇÃO DE PRODUTO</h1>
     <h2 >Gabriela Romano</h2>
