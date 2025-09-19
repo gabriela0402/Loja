@@ -33,7 +33,7 @@
                         <td>
                             <div class='btn-group' role='group'>
                                 <a href='form_atualizar.php?id=".$produto['id']."' class='btn btn-danger'>Atualizar</a>
-                                <a href='#' class='btn btn-warning'>Apagar</a>
+                                <a href='deletar.php?id=".$produto['id']."' class='btn btn-warning' onclick=\"return confirm('Tem certeza que deseja excluir este produto?');\">Apagar</a>
                             </div>
                         </td>
                     ";
@@ -42,7 +42,8 @@
             ?>
             </tbody>
         </table>
-        <a href="index.php" class="btn btn-back">Voltar</a>
+        <a href="index2.php" class="btn btn-back">Voltar</a>
     </div>
+    
 </body>
 </html>
