@@ -1,41 +1,54 @@
 <?php
     include 'cabecalho.php';
+    include 'conexao.php';
     $id = $_GET['id'];
-    //echo "Código id = $id";
+
+    // Se o formulário foi enviado (método POST)
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $nome = $_POST['produto'];
+        $preco = $_POST['preco'];
+        $quantidade = $_POST['estoque'];
+
+        
+        $sql = "UPDATE produtos SET nome = :nome, preco = :preco, quantidade = :quantidade WHERE id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':nome' => $nome,
+            ':preco' => $preco,
+            ':quantidade' => $quantidade,
+            ':id' => $id
+        ]);
+
+        
+        header("Location: listar.php");
+        exit;
+    }
+
+    
+    $sql = "SELECT * FROM produtos WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':id' => $id]);
+    $produto = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <link rel="stylesheet" href="atualizar.css">
-<body >
-    <h1 >ATUALIZAÇÃO DE PRODUTO</h1>
-    <h2 >Gabriela Romano</h2>
-    <?php
-        require 'conexao.php';
-        $sql = "SELECT * FROM produtos WHERE id = $id";
-        $stmt = $pdo->query($sql);
-        $produto = $stmt->fetch(PDO::FETCH_ASSOC);
+<body>
+    <h1>ATUALIZAÇÃO DE PRODUTO</h1>
+    <h2>Gabriela Romano</h2>
 
-        // echo "ID: " . $produto['id'] . "<br>";
-        // echo "Nome: " . $produto['nome'] . "<br>";
-        // echo "Preço: R$" . $produto['preco'] . "<br>";
-        // echo "Estoque: " . $produto['estoque'] . "<br><br>";
-        
-    ?>
     <div class="container">
-        <form action="#" method="POST">
+        <form action="" method="POST">
             <div class="mb-3">            
-               Nome:<input value="<?php echo $produto['nome'];?>"  type="text" name="produto" class="form-control" >            
+               Nome: <input value="<?php echo $produto['nome'];?>" type="text" name="produto" class="form-control">            
             </div>
             <div class="mb-3">            
-                Preço:<input value="<?php echo $produto['preco'];?>" type="text" name="preco" class="form-control" >
+                Preço: <input value="<?php echo $produto['preco'];?>" type="text" name="preco" class="form-control">
             </div>
-            <div class="mb-3" >
-                Quantidade:<input value=" <?php echo $produto['quantidade'];?>" type="text" name="estoque" class="form-control" >            
+            <div class="mb-3">
+                Quantidade: <input value="<?php echo $produto['quantidade'];?>" type="text" name="estoque" class="form-control">            
             </div>
-            <button type="submit" class="btn btn-primary" >Atualizar</button>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
-        <a href="index.php" type="button" class="btn btn-warning" >Voltar</a>
+        <a href="index2.php" type="button" class="btn btn-warning">Voltar</a>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-
 </body>
 </html>
