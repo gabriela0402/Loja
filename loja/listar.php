@@ -42,7 +42,7 @@
             ?>
             </tbody>
         </table>
-        <a href="index2.php" class="btn btn-back">Voltar</a>
+        <a href="index.php" class="btn btn-back">Voltar</a>
     </div>
     
 </body>

@@ -48,7 +48,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
-        <a href="index2.php" type="button" class="btn btn-warning">Voltar</a>
+        <a href="index.php" type="button" class="btn btn-warning">Voltar</a>
     </div>
 </body>
 </html>
